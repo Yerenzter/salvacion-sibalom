@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Loop, M, Tick } from "../lib";
 import axios from "axios";
 import AddResident from "./Actions/AddResdient";
+import EditResident, { SetResidentId } from "./Actions/EditResident";
+import DeleteResident, { SetId } from "./Actions/DeleteResident";
 
 export default function ManageResidents() {
   useEffect(() => {
@@ -24,7 +26,7 @@ export default function ManageResidents() {
       id: keyword,
       fname: keyword,
       mname: keyword,
-      lname: keyword
+      lname: keyword,
     };
 
     const res = await axios.post(
@@ -50,6 +52,8 @@ export default function ManageResidents() {
   return (
     <>
       <AddResident />
+      <EditResident />
+      <DeleteResident />
 
       <div className="row">
         <div className="col s12 p-5">
@@ -102,7 +106,7 @@ export default function ManageResidents() {
                   <Loop repeat={data.length}>
                     {(index) => (
                       <tr key={index}>
-                        <td>{data.length}</td>
+                        <td>{index + 1}</td>
                         <td>{data[index].fname}</td>
                         <td>{data[index].mname}</td>
                         <td>{data[index].lname}</td>
@@ -114,10 +118,18 @@ export default function ManageResidents() {
                         <td>{data[index].birthplace}</td>
                         <td>{data[index].voter_status}</td>
                         <td>
-                          <button className="btn waves-effect bg-blue-950 p-3 mx-2">
+                          <button
+                            className="btn waves-effect bg-blue-950 p-3 mx-2 modal-trigger"
+                            data-target="editResident"
+                            onClick={() => SetResidentId(data[index].id)}
+                          >
                             <i className="material-icons">edit</i>
                           </button>
-                          <button className="btn waves-effect bg-red-500 p-3 mx-2">
+                          <button
+                            className="btn waves-effect bg-red-500 p-3 mx-2 modal-trigger"
+                            data-target="deleteResident"
+                            onClick={() => SetId(data[index].id)}
+                          >
                             <i className="material-icons">delete</i>
                           </button>
                         </td>

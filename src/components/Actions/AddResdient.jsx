@@ -58,14 +58,56 @@ export default function AddResident() {
                 <label htmlFor="addAge">Age</label>
               </div>
 
-              <div className="col s4 input-field outlined">
-                <input id="addGender" placeholder=" " />
-                <label htmlFor="addGender">Gender</label>
+              <div className="col s4">
+                <div
+                  className="input-field outlined dropdown-trigger"
+                  data-target="selectGender"
+                >
+                  <input id="addGender" placeholder=" " readOnly={true} />
+                  <label htmlFor="addGender">Gender</label>
+                </div>
+
+                <ul id="selectGender" className="dropdown-content">
+                  <li onClick={() => (addGender.value = "Male")}>
+                    <a href="#">Male</a>
+                  </li>
+
+                  <li onClick={() => (addGender.value = "Female")}>
+                    <a href="#">Female</a>
+                  </li>
+                </ul>
               </div>
 
-              <div className="col s4 input-field outlined">
-                <input id="addMaritalStatus" placeholder=" " />
-                <label htmlFor="addMaritalStatus">Marital Status</label>
+              <div className="col s4">
+                <div
+                  className="input-field outlined dropdown-trigger"
+                  data-target="selectMaritalStatus"
+                >
+                  <input
+                    id="addMaritalStatus"
+                    placeholder=" "
+                    readOnly={true}
+                  />
+                  <label htmlFor="addMaritalStatus">Marital Status</label>
+                </div>
+
+                <ul id="selectMaritalStatus" className="dropdown-content">
+                  <li onClick={() => (addMaritalStatus.value = "Single")}>
+                    <a href="#">Single</a>
+                  </li>
+
+                  <li onClick={() => (addMaritalStatus.value = "Married")}>
+                    <a href="#">Married</a>
+                  </li>
+
+                  <li onClick={() => (addMaritalStatus.value = "Divorced")}>
+                    <a href="#">Divorced</a>
+                  </li>
+
+                  <li onClick={() => (addMaritalStatus.value = "Widowed")}>
+                    <a href="#">Widowed</a>
+                  </li>
+                </ul>
               </div>
 
               <div className="col s4 input-field outlined">
@@ -83,9 +125,23 @@ export default function AddResident() {
                 <label htmlFor="addBirthplace">Birthplace</label>
               </div>
 
-              <div className="col s4 input-field outlined">
-                <input id="addVoterStatus" placeholder=" " />
-                <label htmlFor="addVoterStatus">Voter Status</label>
+              <div className="col s4">
+                <div
+                  className="input-field outlined dropdown-trigger"
+                  data-target="selectVoterStatus"
+                >
+                  <input id="addVoterStatus" placeholder=" " readOnly={true} />
+                  <label htmlFor="addVoterStatus">Voter Status</label>
+                </div>
+
+                <ul id="selectVoterStatus" className="dropdown-content">
+                  <li onClick={() => (addVoterStatus.value = "Registered")}>
+                    <a href="#">Registered</a>
+                  </li>
+                  <li onClick={() => (addVoterStatus.value = "Not Registered")}>
+                    <a href="#"> Not Registered</a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

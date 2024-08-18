@@ -1,5 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home, Login, ManageResidents, ManageUsers } from "../components";
+import {
+  Home,
+  Login,
+  ManageCertificates,
+  ManageResidents,
+  ManageUsers,
+} from "../components";
 import Layout from "./Layout";
 
 export default function App() {
@@ -7,8 +13,13 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route index element={<Home />} />
+
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+            <Route
+              path="/manage/certificates"
+              element={<ManageCertificates />}
+            />
             <Route path="/manage/residents" element={<ManageResidents />} />
             <Route path="/manage/users" element={<ManageUsers />} />
           </Route>
